@@ -71,17 +71,17 @@ function App() {
       <section id="services" className="services">
         <h2>Our Core Services</h2>
         <div className="service-cards">
-          <div className="service-card">
+          <div id="custom-led" className="service-card">
             <img src="custom-led-icon.png" alt="Custom LED Solutions" />
             <h3>Custom LED Solutions</h3>
             <p>Tailored LED solutions for various industries.</p>
           </div>
-          <div className="service-card">
+          <div id="maintenance" className="service-card">
             <img src="maintenance-icon.png" alt="LED Maintenance" />
             <h3>LED Maintenance</h3>
             <p>Ensuring long-lasting performance for your LED systems.</p>
           </div>
-          <div className="service-card">
+          <div id="consulting" className="service-card">
             <img src="consulting-icon.png" alt="Consulting" />
             <h3>Consulting</h3>
             <p>Expert consulting for your LED projects.</p>
