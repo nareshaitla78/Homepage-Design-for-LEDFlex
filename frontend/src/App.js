@@ -4,13 +4,16 @@ import logo from "../src/assets/ledflexgroup_logo.jpg"
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  // const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setDropdownOpen(false); // Close dropdown when toggling mobile menu
+
   };
 
   const scrollToSection = (id) => {
@@ -21,33 +24,42 @@ function App() {
     setIsMobileMenuOpen(false);  
   };
   
+  // const toggleMobileMenu = () => {
+  //   setMobileMenuOpen(!isMobileMenuOpen);
+  // };
 
+  // Function to toggle the dropdown menu
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
   return (
     <div className="App">
       {/* Navigation Bar */}
       <nav className="navbar">
-        <div className="logo">
-          <img src={logo} alt="LEDFlex Logo" />
-        </div>
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><a href="#home" onClick={() => scrollToSection('home')}>Home</a></li>
-          <li><a href="#about" onClick={() => scrollToSection('about')}>About Us</a></li>
-          <li className="dropdown">
-            <a href="#services" onClick={() => scrollToSection('services')}>Services</a>
-            <ul className="dropdown-menu">
-              <li><a href="#custom-led" onClick={() => scrollToSection('custom-led')}>Custom LED Solutions</a></li>
-              <li><a href="#maintenance" onClick={() => scrollToSection('maintenance')}>LED Maintenance</a></li>
-              <li><a href="#consulting" onClick={() => scrollToSection('consulting')}>Consulting</a></li>
-            </ul>
-          </li>
-          <li><a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a></li>
-          <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
-        </ul>
-        <div className="hamburger" onClick={toggleMobileMenu}>
-          &#9776;
-        </div>
-      </nav>
+      <div className="logo">
+        <img src={logo} alt="LEDFlex Logo"   />
+      </div>
 
+      <ul className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li className="dropdown">
+          <a href="#services" onClick={toggleDropdown}>Services</a>
+          <ul className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
+            <li><a href="#custom-led">Custom LED Solutions</a></li>
+            <li><a href="#maintenance">LED Maintenance</a></li>
+            <li><a href="#consulting">Consulting</a></li>
+          </ul>
+        </li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      {/* Hamburger Menu */}
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? "✖" : "☰"}
+      </div>
+    </nav>
       <section id="home" className="banner">
         <div className="banner-content">
           <h1>Innovative LED Solutions for a Brighter Future</h1>
@@ -178,7 +190,7 @@ function App() {
     <div className="footer-section">
       <h3>Follow Us</h3>
       <div className="social-icons">
-        <a href="#"><img rel="icon" src="https://static.xx.fbcdn.net/rsrc.php/yx/r/e9sqr8WnkCf.ico" alt="Facebook" /></a>
+        {/* <a href="#"><img rel="icon" src="https://static.xx.fbcdn.net/rsrc.php/yx/r/e9sqr8WnkCf.ico" alt="Facebook" /></a> */}
         <a href="https://www.instagram.com/ledflexgroup/"><img rel="icon" sizes="192x192" src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" /></a>
         <a href="https://www.linkedin.com/company/ledflexgroup/"><img  rel="icon" type="image/svg+xml" src="https://static.licdn.com/aero-v1/sc/h/akt4ae504epesldzj74dzred8" id="favicon-svg" /></a>
       </div>

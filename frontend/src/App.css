@@ -52,7 +52,7 @@ body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #a7d6e6;
+  background-color: #101111;
   list-style: none;
   padding: 10px;
   top: 100%;
@@ -117,6 +117,87 @@ body {
   position: relative;
   overflow: hidden; /* Ensures animations don't overflow */
 }
+/* Navbar Base Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+  color: blue;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: blue;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333;
+  display: none;
+  flex-direction: column;
+  width: 200px;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* HIDE DROPDOWN ON MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+}
+
 
 .banner::before {
   content: '';
@@ -125,7 +206,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(134, 151, 224, 0.5);
   animation: fadeInBackground 2s ease-in-out;
 }
 
@@ -153,7 +234,7 @@ body {
 }
 
 .banner-content .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #3c434a;
   transform: scale(1.05);
 }
 
@@ -211,6 +292,11 @@ body {
 
 .cta-button:hover {
   background-color: #e65c00;
+}
+@media (max-width: 768px) {
+  .dropdown-menu {
+    display: none !important;
+  }
 }
 
 /* About Us Section */
