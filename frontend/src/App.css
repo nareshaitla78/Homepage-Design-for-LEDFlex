@@ -13,9 +13,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: white;
   padding: 10px 20px;
-  color: white;
+  color: black;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -23,6 +23,7 @@ body {
 
 .navbar .logo img {
   height: 50px;
+  /* size: 0px; */
 }
 
 .nav-links {
@@ -38,7 +39,7 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: blue;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s ease;
@@ -51,7 +52,7 @@ body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #444;
+  background-color: #a7d6e6;
   list-style: none;
   padding: 10px;
   top: 100%;
@@ -68,8 +69,7 @@ body {
   font-size: 24px;
   cursor: pointer;
 }
-
-/* Banner */
+/* 
 .banner {
   background-image: url('../src/assets/ledflexgroup_cover.jpg');
   background-size: cover;
@@ -102,8 +102,102 @@ body {
   font-size: 48px;
   margin-bottom: 20px;
   animation: fadeIn 2s ease-in-out;
+} */
+/* Banner */
+.banner {
+  background-image: url('../src/assets/ledflexgroup_cover.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Ensures animations don't overflow */
 }
 
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadeInBackground 2s ease-in-out;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: slideInFromLeft 1.5s ease-in-out, fadeIn 2s ease-in-out;
+}
+
+.banner-content .cta-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: fadeIn 2.5s ease-in-out, pulse 2s infinite;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner-content .cta-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .cta-button {
   padding: 15px 30px;
   background-color: #ff6600;
@@ -120,7 +214,7 @@ body {
 }
 
 /* About Us Section */
-.about-us {
+/* .about-us {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -140,8 +234,440 @@ body {
 .about-content p {
   font-size: 18px;
   margin-bottom: 20px;
+} */
+/* About Us Section */
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 20px;
+  /* background: linear-gradient(135deg, #6a11cb, #2575fc, #00d2ff); */
+  background: linear-gradient(135deg, #ff6600,#2575fc,#00ff88);
+  background-size: 300% 300%;
+  animation: gradientBackground 10s ease infinite;
+  position: relative;
+  overflow: hidden;
 }
 
+.about-content {
+  width: 50%;
+  color: white;
+  z-index: 2;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  animation: slideInFromLeft 1.5s ease-in-out;
+}
+
+.about-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.about-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.about-content .learn-more-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #2575fc;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: fadeIn 3s ease-in-out, pulse 2s infinite;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-content .learn-more-button:hover {
+  background-color: #2575fc;
+  color: white;
+  transform: scale(1.05);
+}
+
+.about-image {
+  width: 45%;
+  position: relative;
+  z-index: 2;
+  animation: float 4s ease-in-out infinite;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Text Animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Floating Image Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Button Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Projects Section */
+.projects {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #6a11cb);
+  background-size: 300% 300%;
+  animation: gradientBackground 10s ease infinite;
+  color: white;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.project-gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  width: 30%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #00ff88,#a7d6e6);
+}
+
+.project-content {
+  text-align: left;
+}
+
+.project-content h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  animation: slideInFromLeft 1.5s ease-in-out;
+}
+
+.project-details {
+  margin-bottom: 15px;
+}
+
+.project-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.project-description {
+  font-size: 14px;
+  line-height: 1.6;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+/* Keyframes for Animations */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Newsletter Section */
+.newsletter {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #ccc, #a7d6e6,#0056b3);
+  background-size: 300% 300%;
+  animation: gradientBackground 10s ease infinite;
+  text-align: center;
+  color: white;
+}
+
+.newsletter h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.newsletter-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  color: #ff6f61;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter-button:hover {
+  background-color: #ff6f61;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Modal Popup */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  animation: slideInFromBottom 0.5s ease-in-out;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modal-content button {
+  padding: 10px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #ff4a3d;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #434343, #000000);
+  color: white;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  width: 30%;
+}
+
+.footer-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* Keyframes for Animations */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .learn-more-button {
   padding: 15px 30px;
   background-color: #333;
@@ -182,21 +708,77 @@ body {
   display: flex;
   justify-content: space-around;
 }
-
-.service-card {
-  width: 30%;
+/* .Linkedin{
+  color: wheat;
+} */
+/* .service-card {
+  width: 25%;
   padding: 30px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+::h
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+} */
+.service-card {
+  width: 25%;
+  padding: 30px;
+  background-color: linear-gradient(45deg, #007bff, #f4f4f4);;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+  overflow: hidden; /* Ensures the content doesn't overflow during animation */
+  position: relative; /* For pseudo-element positioning */
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #007bff; /* Change to your desired hover background color */
+  color: white; /* Change text color on hover */
 }
 
+/* Background color animation */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #007bff, #00ff88); /* Gradient animation */
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.service-card:hover::before {
+  opacity: 1; /* Show the gradient background on hover */
+}
+
+/* Text animation */
+.service-card h3,
+.service-card p {
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.service-card:hover h3 {
+  transform: translateX(10px); /* Move text slightly to the right */
+  color: #fff; /* Change text color on hover */
+}
+
+.service-card:hover p {
+  transform: translateX(10px); /* Move text slightly to the right */
+  color: #fff; /* Change text color on hover */
+}
 .service-card img {
   width: 50px;
   margin-bottom: 15px;
