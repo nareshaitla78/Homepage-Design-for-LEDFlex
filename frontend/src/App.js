@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';  
-import logo from "../src/assets/ledflexgroup_logo.jpg"
+import logo from "../src/assets/logo.png";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
